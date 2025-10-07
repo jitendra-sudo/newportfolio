@@ -1,10 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import vector1 from '../assets/Vector1.png'
 import { data } from './data.js';
 import vector2 from '../assets/Vector2.png';
 import Profile from '../assets/Profile.png';
 import quoteUp from '../assets/quote-up.png';
 import Star from '../assets/Star.png';
+
+
+function TypingEffect({ text, speed = 100, pause = 1000 }) {
+    const [displayedText, setDisplayedText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const handleTyping = () => {
+            if (!isDeleting) {
+                if (index < text.length) {
+                    setDisplayedText((prev) => prev + text.charAt(index));
+                    setIndex((prev) => prev + 1);
+                } else {
+                    setTimeout(() => setIsDeleting(true), pause);
+                }
+            } else {
+                if (index > 0) {
+                    setDisplayedText((prev) => prev.slice(0, -1));
+                    setIndex((prev) => prev - 1);
+                } else {
+                    setTimeout(() => setIsDeleting(false), pause);
+                }
+            }
+        };
+
+        const timer = setTimeout(handleTyping, speed);
+        return () => clearTimeout(timer);
+    }, [text, index, isDeleting, speed, pause]);
+
+    return (
+        <span className="text-orange-500">{displayedText}</span>
+    );
+}
 
 function Home() {
     const [activeTab, setActiveTab] = useState('false')
@@ -21,7 +55,7 @@ function Home() {
             <div className="text-center">
                 <div className="relative">
                     <p className="font-semibold text-[66px] leading-none tracking-[-0.015em] capitalize text-black">
-                        I'm <span className="text-orange-500">{data.name}</span>,
+                        I'm <TypingEffect text={data.name} speed={100} />,
                     </p>
                     <div className='justify-center items-center inline-block relative'>
                         <p className="font-medium text-[76px] text-black leading-none tracking-[-0.015em] capitalize ">
