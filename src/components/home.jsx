@@ -11,7 +11,7 @@ function Home() {
     const [activeTab, setActiveTab] = useState('false')
 
     return (
-        <div id='home' className='pt-[100px] h-screen '>
+        <div id='home' className='pt-[100px] h-screen overflow-hidden'>
             <div className='w-full flex-col relative flex justify-center items-center py-4'>
                 <div className='relative'>
                     <img src={vector1} alt='logo' className='h-8 w-8 absolute -top-6 -right-6' />
@@ -31,11 +31,11 @@ function Home() {
                 </div>
             </div>
 
-            <div className=' h-78 relative flex justify-between  gap-4 items-end'>
-                <div className=' w-[60%] relative'>
-                    <img src={Ellipse} alt='logo' className='h-[228px] absolute bottom-0 left-25' />
-                    <img src={Profile} alt='logo' className='h-[360px] absolute bottom-0 right-2' />
-                    <div className='flex justify-center my-2'>
+            <div className=' h-105 flex relative justify-between  gap-4 items-end '>
+                <div className=' w-[60%] h-full flex justify-center items-end'>
+                    <img src={Ellipse} alt='logo' className='h-[328px] absolute bottom-0 left-0' />
+                    <img src={Profile} alt='logo' className='h-[480px] absolute bottom-0 left-2' />
+                    <div className='my-4'>
                         <div className="flex  mx-auto gap-2 p-1 rounded-full border border-gray-300 bg-white/10 backdrop-blur-3xl w-auto">
                             <button onClick={() => setActiveTab('false')} className={`  ${activeTab == 'false' ? "bg-orange-500  rounded-full px-4" : "px-2"} py-2 text-white font-semibold hover:shake`}>
                                 Portfolio
@@ -47,25 +47,28 @@ function Home() {
                     </div>
 
                 </div>
-                <div className='w-[40%] py-8'>
-                    <img src={quoteUp} alt='logo' className='h-8' />
-                    <div className='py-2'>
-                        <p className=''>{data?.title}</p>
-                        <div className='flex gap-1'>
-                            <img src={Star} alt='logo' className='h-6 ' />
-                            <img src={Star} alt='logo' className='h-6 ' />
-                            <img src={Star} alt='logo' className='h-6 ' />
-                            <img src={Star} alt='logo' className='h-6 ' />
-                            <img src={Star} alt='logo' className='h-6 ' />
-                        </div>
-
-                    </div>
+                <div className='w-[40%] h-full py-8  flex items-end'>
                     <div className=''>
-                        <p className="flex items-end gap-1">
-                            <span className="text-3xl font-bold">{data?.experience}</span> Experience
-                        </p>
+                        <img src={quoteUp} alt='logo' className='h-8' />
+                        <div className='py-2'>
+                            <p className=''>{data?.title}</p>
+                            <div className='flex gap-1'>
+                                <img src={Star} alt='logo' className='h-6 ' />
+                                <img src={Star} alt='logo' className='h-6 ' />
+                                <img src={Star} alt='logo' className='h-6 ' />
+                                <img src={Star} alt='logo' className='h-6 ' />
+                                <img src={Star} alt='logo' className='h-6 ' />
+                            </div>
+
+                        </div>
+                        <div className=''>
+                            <p className="flex items-end gap-1">
+                                <span className="text-3xl font-bold">{data?.experience}</span> Experience
+                            </p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     )

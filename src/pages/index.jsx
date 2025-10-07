@@ -6,6 +6,9 @@ import WhyHireMe from '../components/whyHireMe';
 import TechnicalSkills from '../components/technicalSkills';
 import bg from '../assets/bg.jpg'
 import ServicesSection from '../components/myServices';
+import Blogs from '../components/blogs';
+import Email from '../components/email';
+import Footer from '../components/footer';
 
 function Index() {
 
@@ -35,11 +38,20 @@ function Index() {
                 />
                 <div className="absolute inset-0 bg-black/50 backdrop-blur-xs" />
 
-                <div className="relative z-10 w-[80%] mx-auto">
+                {/* <div className="relative z-10 w-[80%] mx-auto">
                     <ServicesSection />
-                </div>
+                </div> */}
             </div>
 
+            <div className='w-[80%] mx-auto'>
+                <Blogs />
+                <Email />
+            </div>
+            <div className='bg-[#1E1E1E]'>
+                <div className='w-[80%] mx-auto '>
+                    <Footer />
+                </div>
+            </div>
 
         </>
 

@@ -1,5 +1,6 @@
 export const data = {
     name: "Rakesh Kumar",
+    number: "+91 1234567890",
     role: 'Software Developer',
     title: "Full Stack Developer – React, Redux, MUI, Tailwind CSS, Node.js, Express.",
     experience: "0.4 Years",
@@ -56,6 +57,22 @@ export const data = {
         { name: 'Firebase', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
         { name: 'CSS3', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
         { name: 'Redis', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' },
-    ]
-
-}
+    ],
+    blogs: [
+        { id: 1, title: "Blog 1", image: "https://picsum.photos/id/1011/400/300" },
+        { id: 2, title: "Blog 2", image: "https://picsum.photos/id/1012/400/300" },
+        { id: 3, title: "Blog 3", image: "https://picsum.photos/id/1013/400/300" },
+        { id: 4, title: "Blog 4", image: "https://picsum.photos/id/1015/400/300" },
+        { id: 5, title: "Blog 5", image: "https://picsum.photos/id/1016/400/300" },
+        { id: 6, title: "Blog 6", image: "https://picsum.photos/id/1018/400/300" },
+        { id: 7, title: "Blog 7", image: "https://picsum.photos/id/1020/400/300" },
+        { id: 8, title: "Blog 8", image: "https://picsum.photos/id/1024/400/300" },
+        { id: 9, title: "Blog 9", image: "https://picsum.photos/id/1025/400/300" },
+    ],
+    serviceID: "service_x3a2i6m",
+    templateID: "template_7eau2ve",
+    userID: "gYBZNlFsdDCwi81la",
+    PortfolioName: "New Portfolio Contact",
+    Portfoliotitle: "Have an Awesome Project Idea? Let’s Discuss",
+    footerTitle:" I'm a passionate React Frontend Developer with hands-on experience in building responsive, dynamic, and user-friendly web applications."
+          }
