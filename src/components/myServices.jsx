@@ -4,15 +4,15 @@ import { MdArrowOutward } from "react-icons/md";
 const services = [
     {
         name: "Frontend Coding",
-        image: "/images/code.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
     },
     {
         name: "Responsive Design",
-        image: "/images/setup.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
     },
     {
         name: "Data Visualization",
-        image: "/images/charts.jpg",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
     }
 ];
 
@@ -20,7 +20,6 @@ const ServicesSection = () => {
     return (
         <section className=" py-16 text-white relative h-screen">
             <div className="max-w-6xl mx-auto px-4">
-                {/* Section Header */}
                 <div className="mb-10 flex justify-between">
                     <h2 className="text-3xl font-bold">
                         My <span className="text-orange-400">Services</span>
@@ -34,24 +33,21 @@ const ServicesSection = () => {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-white/10 backdrop-blur-xs rounded-xl  overflow-hidden shadow-lg relative group h-68 w-65"
+                            className="bg-white/10 backdrop-blur-xs rounded-xl overflow-hidden roun shadow-lg relative group h-68 w-65"
                         >
                             <div className='border-b-1  p-3 border-b-gray-100 w-full '>
                                 <p className='font-semibold'>Name</p>
                             </div>
 
-                            {/* <img
-                                src={service.image}
-                                alt={service.name}
-                                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                            /> */}
-
-                            <div className="p-4">
-                                <h3 className="text-lg font-semibold">{service.name}</h3>
+                          
+                            <div className='bg-black/10 backdrop-blur-lg  rounded-4xl z-10  absolute bottom-0 pt-2 border-t border-t-gray-100/30'>
+                                <div className='bg-black/5 backdrop-blur-lg border-t border-t-gray-100/30  rounded-3xl z-10 pt-2' >
+                                    <img src={service.image} alt={service.name} className="w-full h-48 object-cover transition-transform duration-300  rounded-xl" />
+                                </div>
                             </div>
 
-                            {/* Button in the bottom-right corner */}
-                            <div className="absolute h-14 w-14 bottom-0 right-0  bg-black/30 p-2 transition-colors duration-300 flex justify-center items-center rounded-tl-xl">
+
+                            <div className="absolute h-14 w-14 bottom-0 right-0 z-50 p-2 transition-colors duration-300 flex justify-center items-center rounded-tl-xl">
                                 <div className='rounded-full p-2 bg-black'>
                                     <MdArrowOutward className="text-white text-2xl" />
                                 </div>
@@ -59,13 +55,6 @@ const ServicesSection = () => {
                         </div>
                     ))}
                 </div>
-
-
-                {/* <div className="flex justify-center mt-8 space-x-2">
-          <span className="w-3 h-3 bg-white rounded-full"></span>
-          <span className="w-3 h-3 bg-white/30 rounded-full"></span>
-          <span className="w-3 h-3 bg-white/30 rounded-full"></span>
-        </div> */}
             </div>
         </section>
     );
