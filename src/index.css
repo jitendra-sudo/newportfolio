@@ -28,7 +28,6 @@
     }
   }
 
-  
 }
 
 
@@ -52,4 +51,36 @@
 }
 
 
+@layer utilities {
+  @keyframes random-move {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-10px, 5px); }
+    50% { transform: translate(10px, -5px); }
+    75% { transform: translate(-5px, -10px); }
+  }
+
+  @keyframes random-move-slow {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(5px, -5px); }
+  }
+
+  @keyframes hover-fast {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-50px, -50px); }
+    50% { transform: translate(50px, 50px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  .animate-random-move {
+    animation: random-move 10s ease-in-out infinite;
+  }
+
+  .animate-random-move-slow {
+    animation: random-move-slow 15s ease-in-out infinite;
+  }
+
+  .animate-hover-fast {
+    animation: hover-fast 8s ease-in-out forwards;
+  }
+}
 

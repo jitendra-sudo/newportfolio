@@ -69,10 +69,24 @@ export const data = {
         { id: 8, title: "Blog 8", image: "https://picsum.photos/id/1024/400/300" },
         { id: 9, title: "Blog 9", image: "https://picsum.photos/id/1025/400/300" },
     ],
+    services: [
+        {
+            name: "Frontend Coding",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+        },
+        {
+            name: "Responsive Design",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+        },
+        {
+            name: "Data Visualization",
+            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+        }
+    ],
     serviceID: "service_x3a2i6m",
     templateID: "template_7eau2ve",
     userID: "gYBZNlFsdDCwi81la",
     PortfolioName: "New Portfolio Contact",
     Portfoliotitle: "Have an Awesome Project Idea? Let’s Discuss",
-    footerTitle:" I'm a passionate React Frontend Developer with hands-on experience in building responsive, dynamic, and user-friendly web applications."
-          }
+    footerTitle: " I'm a passionate React Frontend Developer with hands-on experience in building responsive, dynamic, and user-friendly web applications."
+}

@@ -71,9 +71,7 @@
 
 // export default Navbar;
 
-
 import React, { useState, useRef, useEffect } from "react";
-import "./index.css"; // Make sure this file has the shake animation
 
 function Navbar() {
   const [activeTab, setActiveTab] = useState("#");
@@ -84,6 +82,7 @@ function Navbar() {
 
   const tabs = ["#", "#about", "#service", "#resume", "#project", "#blogs", "#contact"];
 
+  // Move the orange tracker under the active tab
   useEffect(() => {
     const currentTab = tabRefs.current[activeTab];
     const nav = navRef.current;
@@ -99,7 +98,7 @@ function Navbar() {
     }
   }, [activeTab]);
 
-  // Stop shaking after animation ends
+  // Reset shake animation after 400ms
   useEffect(() => {
     if (shake) {
       const timer = setTimeout(() => setShake(false), 400);
@@ -107,9 +106,27 @@ function Navbar() {
     }
   }, [shake]);
 
+  // Detect clicks outside of the tab buttons
+  useEffect(() => {
+    const handleDocumentClick = (e) => {
+      const clickedOnTab = Object.values(tabRefs.current).some(
+        (tabEl) => tabEl && tabEl.contains(e.target)
+      );
+
+      if (!clickedOnTab) {
+        setShake(true); // Trigger shake if clicked outside tab
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
+
   const handleClick = (tab) => {
     setActiveTab(tab);
-    setShake(true); // Shake the outer div when clicked
   };
 
   return (
@@ -122,6 +139,7 @@ function Navbar() {
         ref={navRef}
         className="flex justify-between items-center h-full text-white rounded-full w-full relative overflow-auto md:overflow-hidden scrollbar-hide"
       >
+        {/* Orange tracker */}
         <div
           className="absolute top-0 bottom-0 bg-orange-500 rounded-full transition-all duration-300"
           style={{ ...trackerStyle }}
@@ -131,7 +149,10 @@ function Navbar() {
             key={tab}
             href={tab}
             ref={(el) => (tabRefs.current[tab] = el)}
-            onClick={() => handleClick(tab)}
+            onClick={(e) => {
+              handleClick(tab);
+              e.stopPropagation(); // Prevent outer click handler
+            }}
             className={`z-10 px-8 h-full flex items-center justify-center rounded-full transition-colors duration-300 ${
               activeTab === tab ? "text-white font-semibold" : "text-white"
             }`}
