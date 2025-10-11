@@ -15,6 +15,22 @@
     animation: ripple 0.6s ease-out;
   }
 
+  @keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+
   @keyframes ripple {
     0% {
       width: 0;

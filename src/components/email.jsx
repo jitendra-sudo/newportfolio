@@ -48,7 +48,7 @@ function Email() {
 
     return (
         <div className="flex flex-col items-center justify-center py-10 bg-white">
-            <div className="text-2xl md:text-4xl font-bold text-center text-gray-800">
+            <div className="text-xl md:text-4xl font-bold text-center text-gray-800">
                 <p>Have an Awesome Project</p>
                 <p>
                     Idea?
@@ -60,7 +60,7 @@ function Email() {
                 onSubmit={handleSubmit}
                 className="mt-6 flex p-1 w-full max-w-lg border border-black/10 rounded-full overflow-hidden items-center"
             >
-                <div className="py-3 px-4 bg-orange-500/30 rounded-full text-orange-500">
+                <div className="py-1 px-2 md:py-3 md:px-4 bg-orange-500/30 rounded-full text-orange-500">
                     <IoMdMailUnread size={24} />
                 </div>
 
@@ -69,13 +69,13 @@ function Email() {
                     placeholder="Enter Email Address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-4 py-2 outline-none text-gray-700"
+                    className="flex-1 px-1 py-1 md:px-4 md:py-2 text-xs md:text-sm outline-none text-gray-700"
                     required
                 />
 
                 <button
                     type="submit"
-                    className="bg-orange-500 rounded-full text-white px-6 py-3 font-semibold hover:bg-orange-600 transition-colors"
+                    className="bg-orange-500 rounded-full text-white px-3 py-1 md:px-6 md:py-3 font-semibold hover:bg-orange-600 transition-colors"
                 >
                     Send
                 </button>

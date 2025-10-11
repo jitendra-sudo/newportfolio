@@ -1,3 +1,7 @@
+import resumeFile from '../assets/Jitendra_FullStack_MERN_Developer.pdf';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, } from "react-icons/fa";
+
+
 export const data = {
     name: "Rakesh Kumar",
     number: "+91 1234567890",
@@ -72,7 +76,7 @@ export const data = {
     services: [
         {
             name: "Frontend Coding",
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+            image: "https://picsum.photos/id/1011/400/300",
         },
         {
             name: "Responsive Design",
@@ -88,5 +92,29 @@ export const data = {
     userID: "gYBZNlFsdDCwi81la",
     PortfolioName: "New Portfolio Contact",
     Portfoliotitle: "Have an Awesome Project Idea? Let’s Discuss",
-    footerTitle: " I'm a passionate React Frontend Developer with hands-on experience in building responsive, dynamic, and user-friendly web applications."
+    footerTitle: " I'm a passionate React Frontend Developer with hands-on experience in building responsive, dynamic, and user-friendly web applications.",
+    resume: {
+        resumePng: resumeFile,
+        name: "Jitendra_FullStack_MERN_Developer.pdf",
+        link: 'https://drive.google.com/file/d/1Pr2cjIV0UcBn0Oqf0rjFCXFAKqasJqvn/view?usp=sharing'
+    },
+
+    mediaLink: [
+        {
+        icon: <FaLinkedinIn />,
+        link: 'https://www.linkedin.com/in/jitendra2705/',
+         },
+        {
+        icon: <FaInstagram />,
+        link: 'https://www.instagram.com/in/jitendravibe/',
+         },
+        {
+        icon: <FaTwitter />,
+        link: '',
+         },
+        {
+        icon: <FaFacebookF />,
+        link: '',
+         },
+        ]
 }
