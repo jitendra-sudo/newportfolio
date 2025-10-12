@@ -7,6 +7,7 @@ export const data = {
     number: "+91 1234567890",
     role: 'Software Developer',
     title: "Full Stack Developer – React, Redux, MUI, Tailwind CSS, Node.js, Express.",
+    portfolioLink:"https://www.linkedin.com/in/jitendra2705/",
     experience: "0.4 Years",
     companyExperience: [
         {
@@ -101,19 +102,19 @@ export const data = {
 
     mediaLink: [
         {
-        icon: <FaLinkedinIn />,
+        icon: FaLinkedinIn,
         link: 'https://www.linkedin.com/in/jitendra2705/',
          },
         {
-        icon: <FaInstagram />,
-        link: 'https://www.instagram.com/in/jitendravibe/',
+        icon: FaInstagram,
+        link: 'https://www.instagram.com/jitendravibe',
          },
         {
-        icon: <FaTwitter />,
+        icon: FaTwitter,
         link: '',
          },
         {
-        icon: <FaFacebookF />,
+        icon:FaFacebookF,
         link: '',
          },
         ]

@@ -32,7 +32,7 @@ const ServicesSection = () => {
     }, []);
 
     return (
-        <section className="py-16 px-4 lg:px-16 text-white relative">
+        <section id='service' className="py-16 px-4 lg:px-16 text-white relative">
             <div className=" mx-auto  px-2">
                 <div className="mb-10  flex px-0 justify-between flex-wrap">
                     <h2 className="text-3xl font-bold">

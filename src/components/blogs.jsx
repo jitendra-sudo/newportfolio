@@ -3,7 +3,7 @@ import { data } from "./data";
 
 const Blogs = () => {
   return (
-<section className="py-10  mx-auto">
+<section id="blogs" className="py-10  mx-auto">
   <h2 className="text-3xl font-bold text-center text-gray-800 pb-9">
     Blogs
   </h2>

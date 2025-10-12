@@ -16,11 +16,11 @@ function Index() {
 
     return (
         <div className='max-w-[1540px] mx-auto'>
-            {/* <div className='w-[80%] mx-auto '>
+            <div className='w-full px-4 mx-auto'>
                 <Navbar />
                 <Home />
                 <Experience />
-            </div> */}
+            </div>
             <div className='bg-[#F2F4F7]'>
                 <div className='w-full px-4 mx-auto '>
                     <WhyHireMe />

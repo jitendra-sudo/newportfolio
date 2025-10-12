@@ -11,9 +11,10 @@ const Footer = () => {
                     <p className="mt-4 text-sm text-gray-300">{data?.footerTitle}</p>
                     <div className="flex space-x-4 mt-4 text-xl">
                         {data?.mediaLink?.map((details, idx) => {
+                            const Icon = details?.icon
                             return (
-                                <a href={data?.link} key={idx} target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-                                    {data?.PortfolioName }
+                                <a href={details?.link} key={idx} target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+                                    <Icon />
                                 </a>
                             )
                         })}
@@ -25,9 +26,13 @@ const Footer = () => {
                         <h3 className="text-orange-500 font-semibold mb-4">Navigation</h3>
                         <ul className="space-y-2 text-sm">
                             <li><a href="#" className="hover:text-orange-400">Home</a></li>
-                            <li><a href="#" className="hover:text-orange-400">About me</a></li>
-                            <li><a href="#" className="hover:text-orange-400">Service</a></li>
-                            <li>  <a href="#" onClick={(e) => {
+                            <li><a href="#myworkExperience" className="hover:text-orange-400">Experiences</a></li>
+                            <li><a href="#whyhireme" className="hover:text-orange-400">Why Hire me</a></li>
+                            <li><a href="#technicalskill" className="hover:text-orange-400">Technical Skill</a></li>
+                            <li><a href="#service" className="hover:text-orange-400">Service</a></li>
+                            <li><a href="#blogs" className="hover:text-orange-400">Blogs</a></li>
+                            <li><a href="#contact" className="hover:text-orange-400">Contacts</a></li>
+                            <li>  <a href="#resume" onClick={(e) => {
                                 e.preventDefault();
                                 const link = document.createElement("a");
                                 link.href = data.resume.resumePng;
@@ -41,13 +46,13 @@ const Footer = () => {
                             </a>
                             </li>
 
-                            <li><a href="#" className="hover:text-orange-400">Project</a></li>
+
                         </ul>
                     </div>
 
                 </div>
 
-                <div className=" flex justify-start  md:justify-end ">
+                <div id="contact" className=" flex justify-start  md:justify-end ">
                     <div>
                         <h3 className="text-orange-500 font-semibold mb-4">Contact</h3>
                         <ul className="text-sm space-y-2">
@@ -55,10 +60,9 @@ const Footer = () => {
                             <li><span className="hover:text-orange-400">{data?.name}</span></li>
                         </ul>
                     </div>
-
                 </div>
             </div>
-        </footer >
+        </footer>
     );
 };
 

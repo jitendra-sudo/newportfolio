@@ -23,7 +23,7 @@ function TechnicalSkills() {
     }, []);
 
     return (
-        <div id='technicalSkill' className="text-white py-10 px-0 md:px-16 ">
+        <div id='technicalskill' className="text-white py-10 px-0 md:px-16 ">
             <div className="mx-auto grid md:grid-cols-2 gap-14">
                 <div>
                     <h2 className="text-2xl font-semibold py-4 text-center">Technical Skills</h2>
@@ -64,7 +64,7 @@ function TechnicalSkills() {
             </div>
             <div className="text-white mt-4 py-3 px-4 overflow-hidden">
                 <div className=" mx-auto border-blue-500 rounded-md text-center">
-                    <h2 className="text-2xl font-semibold py-6 text-center">Skills</h2>
+                    <h2 id='skill' className="text-2xl font-semibold py-6 text-center">Skills</h2>
 
                     <div className="relative w-full overflow-hidden">
                         <div className="flex animate-scroll gap-6 md:gap-12 py-4">

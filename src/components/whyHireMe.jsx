@@ -4,7 +4,7 @@ import Profile2 from '../assets/Profile2.png';
 
 function WhyHireMe() {
     return (
-        <div id='about' className="flex flex-col md:flex-row items-center  md:p-12 mx-auto gap-4 md:gap-10 py-5">
+        <div id='whyhireme' className="flex flex-col md:flex-row items-center  md:p-12 mx-auto gap-4 md:gap-10 py-5">
             <div className="flex justify-center items-end w-full h-[300px] lg:h-[380px] md:w-[50%] relative">
                 <div className='h-50 w-50 md:h-60 md:w-60 xl:h-65 xl:w-65  bg-orange-500/70 rounded-xl'>
                     <img

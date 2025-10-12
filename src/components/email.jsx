@@ -47,7 +47,7 @@ function Email() {
     }, [success, error]);
 
     return (
-        <div className="flex flex-col items-center justify-center py-10 bg-white">
+        <div id="contact" className="flex flex-col items-center justify-center py-10 bg-white">
             <div className="text-xl md:text-4xl font-bold text-center text-gray-800">
                 <p>Have an Awesome Project</p>
                 <p>
