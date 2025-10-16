@@ -34,8 +34,8 @@ const ServicesSection = () => {
     return (
         <section id='service' className="py-16 px-4 lg:px-16 text-white relative">
             <div className=" mx-auto  px-2">
-                <div className="mb-10  flex px-0 justify-between flex-wrap">
-                    <h2 className="text-3xl font-bold">
+                <div className="mb-10  px-0 grid grid-cols-1 md:grid-cols-2">
+                    <h2 className="text-3xl font-bold bord">
                         My <span className="text-orange-400">Services</span>
                     </h2>
                     <p className="mt-4 text-xs lg:text-sm  text-gray-300">

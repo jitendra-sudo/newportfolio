@@ -5,7 +5,7 @@ import { data } from "./data";
 const Footer = () => {
     return (
         <footer id="footer" className=" text-white py-10 px-0 md:px-16">
-            <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 justify-between ">
+            <div className="mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 justify-between ">
                 <div>
                     <h2 className="font-bold text-lg tracking-wide">{data?.name}</h2>
                     <p className="mt-4 text-sm text-gray-300">{data?.footerTitle}</p>
@@ -21,17 +21,25 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className=" flex justify-start  md:justify-center">
+                <div className="mx-auto">
                     <div>
-                        <h3 className="text-orange-500 font-semibold mb-4">Navigation</h3>
+                        <h3 className="text-orange-500 font-semibold mb-4">Explore</h3>
                         <ul className="space-y-2 text-sm">
                             <li><a href="#" className="hover:text-orange-400">Home</a></li>
                             <li><a href="#myworkExperience" className="hover:text-orange-400">Experiences</a></li>
-                            <li><a href="#whyhireme" className="hover:text-orange-400">Why Hire me</a></li>
                             <li><a href="#technicalskill" className="hover:text-orange-400">Technical Skill</a></li>
                             <li><a href="#service" className="hover:text-orange-400">Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="mx-auto">
+                    <div>
+                        <h3 className="text-orange-500 font-semibold mb-4">Engage</h3>
+                        <ul className="space-y-2 text-sm">
+                            <li><a href="#whyhireme" className="hover:text-orange-400">Why Hire me</a></li>
                             <li><a href="#blogs" className="hover:text-orange-400">Blogs</a></li>
-                            <li><a href="#contact" className="hover:text-orange-400">Contacts</a></li>
+                            <li><a href="#contacts" className="hover:text-orange-400">Contacts</a></li>
                             <li>  <a href="#resume" onClick={(e) => {
                                 e.preventDefault();
                                 const link = document.createElement("a");
@@ -49,10 +57,9 @@ const Footer = () => {
 
                         </ul>
                     </div>
-
                 </div>
 
-                <div id="contact" className=" flex justify-start  md:justify-end ">
+                <div id="contact" className=" flex justify-start  md:justify-center ">
                     <div>
                         <h3 className="text-orange-500 font-semibold mb-4">Contact</h3>
                         <ul className="text-sm space-y-2">

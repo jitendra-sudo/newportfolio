@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import { data } from './data'
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { data } from "./data";
 
 function Navbar() {
   const [activeTab, setActiveTab] = useState("#");
@@ -16,37 +16,42 @@ function Navbar() {
     { id: "#technicalskill", label: "Technical Skill" },
     { id: "#service", label: "Service" },
     { id: "#blogs", label: "Blogs" },
-    { id: "#contact", label: "Contact" },
+    { id: "#contacts", label: "Contact" },
   ];
 
-  const updateTracker = (tabId, smooth = true) => {
-    const currentTab = tabRefs.current[tabId];
-    const nav = navRef.current;
-    if (currentTab && nav) {
-      const tabRect = currentTab.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
+  const updateTracker = useCallback(
+    (tabId, smooth = true) => {
+      const currentTab = tabRefs.current[tabId];
+      const nav = navRef.current;
+      if (currentTab && nav) {
+        const tabRect = currentTab.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
 
-      setTrackerStyle({
-        left: `${tabRect.left - navRect.left + nav.scrollLeft}px`,
-        width: `${tabRect.width}px`,
-      });
+        setTrackerStyle({
+          left: `${tabRect.left - navRect.left + nav.scrollLeft}px`,
+          width: `${tabRect.width}px`,
+        });
 
-      const scrollTo =
-        currentTab.offsetLeft -
-        nav.clientWidth / 2 +
-        currentTab.offsetWidth / 2;
+        const scrollTo =
+          currentTab.offsetLeft -
+          nav.clientWidth / 2 +
+          currentTab.offsetWidth / 2;
 
-      nav.scrollTo({
-        left: scrollTo,
-        behavior: smooth ? "smooth" : "auto",
-      });
-    }
-  };
+        nav.scrollTo({
+          left: scrollTo,
+          behavior: smooth ? "smooth" : "auto",
+        });
+      }
+    },
+    []
+  );
 
+  // When activeTab changes, update the tracker
   useEffect(() => {
     updateTracker(activeTab);
-  }, [activeTab]);
+  }, [activeTab, updateTracker]);
 
+  // Reset shake after animation
   useEffect(() => {
     if (shake) {
       const timer = setTimeout(() => setShake(false), 400);
@@ -54,46 +59,77 @@ function Navbar() {
     }
   }, [shake]);
 
+  // If click outside tabs, trigger shake
   useEffect(() => {
     const handleDocumentClick = (e) => {
       const clickedOnTab = Object.values(tabRefs.current).some(
         (tabEl) => tabEl && tabEl.contains(e.target)
       );
-      if (!clickedOnTab) setShake(true);
+      if (!clickedOnTab) {
+        setShake(true);
+      }
     };
+
     document.addEventListener("click", handleDocumentClick);
-    return () => document.removeEventListener("click", handleDocumentClick);
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
   }, []);
 
+  // On scroll, detect which section is in view and set activeTab
   useEffect(() => {
     const handleScroll = () => {
       let currentSection = "#";
       tabs.forEach(({ id }) => {
-        const section = document.querySelector(id === "#" ? "body" : id);
+        const selector = id === "#" ? "body" : id;
+        const section = document.querySelector(selector);
         if (section) {
           const rect = section.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) currentSection = id;
+          // 150 is a threshold — adjust as needed
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            currentSection = id;
+          }
         }
       });
       setActiveTab(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    handleScroll(); // initialize on mount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [tabs]);
 
-  const handleClick = (tabId) => {
-    setActiveTab(tabId);
-    document.querySelector(tabId === "#" ? "body" : tabId)?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
+  // Handle window resize to reposition the tracker
+  useEffect(() => {
+    const handleResize = () => {
+      updateTracker(activeTab, false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [activeTab, updateTracker]);
+
+  const handleClick = useCallback(
+    (tabId) => {
+      setActiveTab(tabId);
+      if (tabId === "#") {
+        // scroll to top if "Home"
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        document.querySelector(tabId)?.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    []
+  );
 
   return (
     <div
-      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] lg:w-auto mx-auto p-[6px] h-11 lg:h-14 rounded-full bg-black backdrop-blur-md bg-opacity-70 overflow-hidden shadow-lg transition-all duration-300 ${shake ? "animate-shake" : ""
-        }`}
+      className={`fixed top-2 md:top-1 left-1/2 transform -translate-x-1/2 z-50 w-[96%] xl:w-auto mx-auto p-[6px] h-14 lg:h-18 rounded-full bg-black backdrop-blur-md bg-opacity-70 overflow-hidden shadow-lg transition-all duration-300 ${
+        shake ? "animate-shake" : ""
+      }`}
     >
       <nav
         ref={navRef}
@@ -114,27 +150,29 @@ function Navbar() {
               e.stopPropagation();
 
               if (id === "#resume") {
-                const link = document.createElement("a");
-                link.href = data.resume.resumePng;
-                link.download = data?.resume?.name || "resume.png";
-                link.click();
+                if (data?.resume?.resumePng) {
+                  const link = document.createElement("a");
+                  link.href = data.resume.resumePng;
+                  link.download = data?.resume?.name || "resume.png";
+                  link.click();
+                }
                 if (data?.resume?.link) {
                   window.open(data.resume.link, "_blank");
                 }
 
                 setActiveTab("#");
                 updateTracker("#");
-                document.querySelector("body")?.scrollIntoView({ behavior: "smooth" });
+                window.scrollTo({ top: 0, behavior: "smooth" });
               } else {
                 handleClick(id);
                 updateTracker(id);
               }
             }}
-
-            className={`z-10 px-6 py-2 flex items-center justify-center whitespace-nowrap rounded-full transition-colors duration-300 ${activeTab === id
-              ? "text-white font-semibold"
-              : "text-gray-300"
-              }`}
+            className={`z-10 px-12 py-2 flex items-center justify-center whitespace-nowrap rounded-full transition-colors duration-300 ${
+              activeTab === id
+                ? "text-white font-semibold"
+                : "text-gray-300 hover:h-12 lg:hover:h-16 font-semibold"
+            }`}
           >
             {label}
           </a>

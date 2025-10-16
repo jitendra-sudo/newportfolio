@@ -15,7 +15,8 @@ import CookieAnimationSection from '../components/CookieAnimationSection';
 function Index() {
 
     return (
-        <div className='max-w-[1540px] mx-auto'>
+        <div className='max-w-[1540px] mx-auto '>
+
             <div className='w-full px-4 mx-auto'>
                 <Navbar />
                 <Home />
@@ -31,7 +32,7 @@ function Index() {
                     <TechnicalSkills />
                 </div>
             </div>
-           <CookieAnimationSection bg={bg}/>
+            <CookieAnimationSection bg={bg} />
 
             <div className='w-full px-4 mx-auto'>
                 <Blogs />

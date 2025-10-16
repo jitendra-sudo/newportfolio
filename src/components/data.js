@@ -1,4 +1,4 @@
-import resumeFile from '../assets/Jitendra_FullStack_MERN_Developer.pdf';
+import resumeFile from '../assets/Rakesh_Resume.pdf';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, } from "react-icons/fa";
 
 
@@ -96,8 +96,8 @@ export const data = {
     footerTitle: " I'm a passionate React Frontend Developer with hands-on experience in building responsive, dynamic, and user-friendly web applications.",
     resume: {
         resumePng: resumeFile,
-        name: "Jitendra_FullStack_MERN_Developer.pdf",
-        link: 'https://drive.google.com/file/d/1Pr2cjIV0UcBn0Oqf0rjFCXFAKqasJqvn/view?usp=sharing'
+        name: "Rakesh_Resume.pdf",
+        link: ''
     },
 
     mediaLink: [

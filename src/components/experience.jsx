@@ -4,17 +4,17 @@ import { data } from './data'
 function Experience() {
 
     return (
-        <div id='myworkExperience' className='md:px-16 py-8'>
-            <p className='text-2xl lg:text-3xl font-bold  text-center py-4 md:py-8'>My <span className='text-orange-500'>Work Experience</span></p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8  mx-auto ">
+        <div id='myworkExperience' className='pb-8 md:py-4 md:px-16'>
+            <p className='text-2xl lg:text-3xl font-bold  text-center py-8 md:py-8'>My <span className='text-orange-500'>Work Experience</span></p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[50px] lg:gap-[100px] xl:gap-[200px]  mx-auto ">
                 <div className="relative flex flex-col gap-4 md:gap-14 md:pr-6 md:border-r-2 md:border-dashed md:border-gray-300">
                     {data?.companyExperience.map((exp, index) => (
                         <div key={index} className="relative">
                             <div>
-                                <h3 className="text-sm lg:text-lg font-semibold text-gray-900">
+                                <h3 className="text-xl font-semibold text-gray-900">
                                     {exp.company}
                                 </h3>
-                                <p className="text-xs lg:text-sm text-gray-500">{exp.date}</p>
+                                <p className="text-sm lg:text-md text-gray-500">{exp.date}</p>
                             </div>
                             <div className={`absolute hidden -right-[38px] top-4 -translate-y-1/2  rounded-full p-1 border-[2px] border-dashed border-gray-400 md:flex justify-center items-center`}>
                                 <div
@@ -27,11 +27,11 @@ function Experience() {
                                 >
                                 </div>
                             </div>
-                            <div key={index} className='py-2 md:hidden'>
-                                <h3 className="text-sm lg:text-lg font-semibold text-orange-600">
+                            <div key={index} className='py-1 md:hidden'>
+                                <h3 className="text-xl font-semibold text-orange-600">
                                     {exp.role}
                                 </h3>
-                                <p className="text-xs lg:text-sm text-gray-600 leading-relaxed line-clamp-3">
+                                <p className="text-sm lg:text-lg text-gray-600 leading-relaxed line-clamp-3">
                                     {exp.description}
                                 </p>
                             </div>
