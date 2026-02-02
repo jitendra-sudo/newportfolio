@@ -2,7 +2,8 @@ import resumeFile from '../assets/Jitendra_FullStack_MERN_Developer.pdf';
 import shopSutra from '../assets/shopsutra.png'
 import justflip from '../assets/justflip.png'
 import easyRent from '../assets/easyRent.png'
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaGithub, FaInstagram, FaLinkedinIn, } from "react-icons/fa";
+
 
 
 export const data = {
@@ -87,17 +88,17 @@ export const data = {
         {
             name: "JustFlip - Real Estate Portal & DashBoard",
             image: justflip,
-            link:'https://justflip.in/'
+            link: 'https://justflip.in/'
         },
         {
             name: "ShopSutra - Ecommerce Platform",
-            image: shopSutra ,
-            link:"https://shopsutra.vercel.app/"
+            image: shopSutra,
+            link: "https://shopsutra.vercel.app/"
         },
         {
             name: "EasyRent - The Tenant-Landlord Communication",
-            image: easyRent ,
-            link:"https://easyrenter.netlify.app/"
+            image: easyRent,
+            link: "https://easyrenter.netlify.app/"
         }
     ],
     serviceID: "service_x3a2i6m",
@@ -109,7 +110,7 @@ export const data = {
     resume: {
         resumePng: resumeFile,
         name: "Jitendra_Mern_Stack_Developer.pdf",
-        link:'https://drive.google.com/file/d/1zXJqV2ltx0L62TxP0IFD3lqjU_c22QDJ/view?usp=sharing'
+        link: 'https://drive.google.com/file/d/1zXJqV2ltx0L62TxP0IFD3lqjU_c22QDJ/view?usp=sharing'
     },
 
     mediaLink: [
@@ -122,12 +123,8 @@ export const data = {
             link: 'https://www.instagram.com/jitendravibe',
         },
         {
-            icon: FaTwitter,
-            link: '',
-        },
-        {
-            icon: FaFacebookF,
-            link: '',
+            icon: FaGithub,
+            link: 'https://github.com/jitendra-sudo',
         },
     ]
 }
