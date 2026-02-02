@@ -25,9 +25,9 @@ function WhyHireMe() {
                         <p className="text-sm text-gray-500">Projects Completed</p>
                     </div>
                     <div>
-                        <button className="border border-black text-black px-6 py-3 rounded-xl hover:text-white hover: hover:bg-black transition duration-300">
+                        <a href='#contacts' className="border border-black text-black px-6 py-3 rounded-xl hover:text-white hover: hover:bg-black transition duration-300">
                             Hire me
-                        </button>
+                        </a>
                     </div>
 
                 </div>

@@ -68,15 +68,22 @@ const ServicesSection = () => {
                             </div>
 
                             <div className="absolute h-14 w-14 bottom-0 right-0 z-50 p-2 flex justify-center items-center rounded-tl-xl">
-                                <div className='rounded-full p-2 bg-black'>
+                                <a
+                                    href={service?.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Open service link"
+                                    className="rounded-full p-2 bg-black inline-flex"
+                                >
                                     <MdArrowOutward className="text-white text-2xl" />
-                                </div>
+                                </a>
+
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex justify-center mt-6 gap-2">
+                {/* <div className="flex justify-center mt-6 gap-2">
                     {data?.services.map((_, index) => (
                         <div
                             key={index}
@@ -97,7 +104,7 @@ const ServicesSection = () => {
 
                         </div>
                     ))}
-                </div>
+                </div> */}
 
             </div>
         </section>
