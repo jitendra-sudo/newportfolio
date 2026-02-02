@@ -1,4 +1,4 @@
-import resumeFile from '../assets/Rakesh_Resume.pdf';
+import resumeFile from '../assets/Jitendra_FullStack_MERN_Developer.pdf';
 import shopSutra from '../assets/shopsutra.png'
 import justflip from '../assets/justflip.png'
 import easyRent from '../assets/easyRent.png'
