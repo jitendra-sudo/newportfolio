@@ -2,6 +2,7 @@ import resumeFile from '../assets/Jitendra_FullStack_MERN_Developer.pdf';
 import shopSutra from '../assets/shopsutra.png'
 import justflip from '../assets/justflip.png'
 import easyRent from '../assets/easyRent.png'
+import golden from '../assets/golden.png'
 import { FaFacebookF, FaTwitter, FaGithub, FaInstagram, FaLinkedinIn, } from "react-icons/fa";
 
 
@@ -69,21 +70,7 @@ export const data = {
         // Tools
         { name: 'Git', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
         { name: 'GitHub', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' }
-    ]
-    ,
-    blogs: [
-        { id: 1, title: "Building Scalable React Applications", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop" },
-        { id: 2, title: "Next.js SSR & Performance Optimization", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop" },
-        { id: 3, title: "Designing REST APIs with Node.js", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop" },
-        { id: 4, title: "Deploying Applications on AWS", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop" },
-        { id: 5, title: "Backend Performance Optimization", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" },
-        { id: 6, title: "System Design Basics for Developers", image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop" },
-        { id: 7, title: "Developer Productivity Tools & Workflow", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop" },
-        { id: 8, title: "Database Optimization Techniques", image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop" },
-        { id: 9, title: "JWT Authentication Explained", image: "https://images.unsplash.com/photo-1510519138101-570d1dca3d66?w=400&h=300&fit=crop" },
-        { id: 10, title: "Testing Strategies for Modern Apps", image: "https://images.unsplash.com/photo-1581090700227-1e37b190418e?w=400&h=300&fit=crop" }
-    ]
-    ,
+    ],
     services: [
         {
             name: "JustFlip - Real Estate Portal & DashBoard",
@@ -99,6 +86,11 @@ export const data = {
             name: "EasyRent - The Tenant-Landlord Communication",
             image: easyRent,
             link: "https://easyrenter.netlify.app/"
+        },
+        {
+            name: "Golden Tamara Events",
+            image: golden,
+            link: "https://goldentamaraevents.com/"
         }
     ],
     serviceID: "service_x3a2i6m",

@@ -5,31 +5,25 @@ import { data } from './data';
 const ServicesSection = () => {
     const scrollRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const cardsPerView = 1;
+   const totalPages = Math.ceil(data.services.length / cardsPerView);
 
-    // Update active index on scroll
     useEffect(() => {
         const handleScroll = () => {
-            const scrollContainer = scrollRef.current;
-            if (!scrollContainer) return;
+            const container = scrollRef.current;
+            if (!container) return;
 
-            const scrollLeft = scrollContainer.scrollLeft;
-            const itemWidth = scrollContainer.scrollWidth / data?.services.length;
-
-            const index = Math.round(scrollLeft / itemWidth);
+            const cardWidth = 276;
+            const index = Math.round(container.scrollLeft / cardWidth);
             setActiveIndex(index);
         };
 
-        const scrollContainer = scrollRef.current;
-        if (scrollContainer) {
-            scrollContainer.addEventListener('scroll', handleScroll);
-        }
+        const container = scrollRef.current;
+        container?.addEventListener("scroll", handleScroll);
 
-        return () => {
-            if (scrollContainer) {
-                scrollContainer.removeEventListener('scroll', handleScroll);
-            }
-        };
+        return () => container?.removeEventListener("scroll", handleScroll);
     }, []);
+
 
     return (
         <section id='service' className="py-16 px-4 lg:px-16 text-white relative">
@@ -45,7 +39,7 @@ const ServicesSection = () => {
 
                 <div
                     ref={scrollRef}
-                    className="flex   xl:w-[1000px] mx-auto xl:py-4 justify-between gap-4  overflow-x-scroll scrollbar-hide scroll-smooth"
+                    className="flex min-w-[260px]  gap-8  xl:w-[1200px] mx-auto xl:py-4 justify-between   overflow-x-scroll scrollbar-hide scroll-smooth"
                 >
                     {data?.services.map((service, index) => (
                         <div
@@ -83,28 +77,25 @@ const ServicesSection = () => {
                     ))}
                 </div>
 
-                {/* <div className="flex justify-center mt-6 gap-2">
-                    {data?.services.map((_, index) => (
+                <div className="  md:hidden flex justify-center mt-6 gap-2">
+                    {Array.from({ length: totalPages }).map((_, pageIndex) => (
                         <div
-                            key={index}
+                            key={pageIndex}
                             onClick={() => {
-                                setActiveIndex(index);
-                                const scrollContainer = scrollRef.current;
-                                if (scrollContainer) {
-                                    const scrollAmount = scrollContainer.clientWidth * index;
-                                    scrollContainer.scrollTo({
-                                        left: scrollAmount,
-                                        behavior: "smooth",
-                                    });
-                                }
+                                setActiveIndex(pageIndex);
+                                scrollRef.current?.scrollTo({
+                                    left: 276 * cardsPerView * pageIndex,
+                                    behavior: "smooth",
+                                });
                             }}
-                            className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${index === activeIndex ? "bg-orange-400 scale-110" : "bg-white/30"
+                            className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${pageIndex === activeIndex
+                                    ? "bg-orange-400 scale-110"
+                                    : "bg-white/30"
                                 }`}
-                        >
-
-                        </div>
+                        />
                     ))}
-                </div> */}
+                </div>
+
 
             </div>
         </section>
